@@ -4,7 +4,7 @@ from pathlib import Path
 from ultralytics import YOLO
 import numpy as np
 import matplotlib.pyplot as plt
-aaaaaa
+
 image_folder = Path("E:/Projects/CV/Task 2/KITTI_Selection/KITTI_Selection/images")
 gt_folder = Path("E:/Projects/CV/Task 2/KITTI_Selection/KITTI_Selection/labels")
 output_folder = Path("E:/Projects/CV/Task 2/Output")
