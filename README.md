@@ -1,6 +1,6 @@
 # Camera–LiDAR Sensor Fusion on KITTI Dataset
 
-> YOLOv8 segmentation + LiDAR point cloud fusion for 3D object detection and distance estimation
+> YOLOv8 segmentation + LiDAR point cloud fusion for 3D object detection and distance estimation  
 > **Course:** LiDAR and Radar Systems — Ravensburg-Weingarten University (RWU)
 
 ---
@@ -12,16 +12,20 @@ This project implements a **camera–LiDAR sensor fusion pipeline** on a subset 
 ---
 
 ## Pipeline
+
+```
 Camera Image ──► YOLOv8-seg ──► 2D segmentation mask (per car)
-│
+                                          │
 LiDAR .bin ──► Project to image (calib) ──┘
-│
-3D points inside mask
-│
-┌─────────────────────┴─────────────────────┐
-Precision 3D                               Distance Est.
-(pts inside GT 3D box /                    (median Z of masked
-total masked pts)                              LiDAR points)
+                                          │
+                              3D points inside mask
+                                          │
+                    ┌─────────────────────┴─────────────────────┐
+               Precision 3D                               Distance Est.
+         (pts inside GT 3D box /                    (median Z of masked
+          total masked pts)                              LiDAR points)
+```
+
 ---
 
 ## Dataset
@@ -133,6 +137,8 @@ A Z-axis threshold (`Z > -1.4 m` in LiDAR frame) removes ground points from the 
 ---
 
 ## Repo Structure
+
+```
 ├── src/
 │   ├── fusion_3D.py           # Main fusion pipeline + evaluation (all frames)
 │   ├── fusion_improved.py     # Ground filter before/after comparison
@@ -148,6 +154,8 @@ A Z-axis threshold (`Z > -1.4 m` in LiDAR frame) removes ground points from the 
 │   └── summary/               # Dataset-level plots + summary_stats.txt
 ├── .gitignore
 └── README.md
+```
+
 ---
 
 ## How to Run
@@ -172,7 +180,7 @@ python src/fusion_improved.py
 python src/summary_analysis.py
 ```
 
-> **Note:** Set `KITTI_ROOT` at the top of each script to your local KITTI dataset path.
+> **Note:** Set `KITTI_ROOT` at the top of each script to your local KITTI dataset path.  
 > YOLOv8 model weights (`yolov8n-seg.pt`) are downloaded automatically by Ultralytics on first run.
 
 ---
