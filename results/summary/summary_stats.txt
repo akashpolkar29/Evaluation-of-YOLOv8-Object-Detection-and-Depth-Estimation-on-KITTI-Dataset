@@ -1,0 +1,24 @@
+=======================================================
+  DATASET-LEVEL EVALUATION SUMMARY
+=======================================================
+  Total YOLO detections       : 125
+  Matched to GT (IoU>0)       : 109
+  Lidar occluded (no dist)    : 5
+  Unmatched detections        : 16
+
+  ── Precision (pts inside GT 3D box / mask pts) ──
+  Mean precision              : 0.565
+  Median precision            : 0.683
+  Std deviation               : 0.272
+  Detections with P > 0.5     : 74 / 109
+  Detections with P > 0.7     : 50 / 109
+
+  ── Distance estimation ──────────────────────────
+  Detections with distance    : 104
+  Mean distance error         : 1.163 m
+  Median distance error       : 1.149 m
+  Std distance error          : 0.705 m
+  Max distance error          : 4.007 m
+  Errors < 1 m                : 40 / 104
+  Errors < 2 m                : 97 / 104
+=======================================================
